@@ -1,3 +1,4 @@
+//API KEY
 //AIzaSyC17HtqLLefNJ4Fe-zA07LzIHdJndzRra4
 
 //https://www.googleapis.com/books/v1/users/userId/bookshelves/shelf/volumes
@@ -12,10 +13,29 @@
 //access title: .items[0].volumeInfo.title
 //access author: .items[0].volumeInfo.authors[0]
 
+
+
 $.ajax({
     url: 'https://www.googleapis.com/books/v1/users/112452514880183692834/bookshelves/1001/volumes'
 }).then((response) => {
-    console.log(response.items[0].volumeInfo.title);
+    
+    for (item of response.items) {
+        const $newDiv = $('<div class="book">');
+        const image = item.volumeInfo.imageLinks.thumbnail;
+        $newDiv.append($(`<img src=${image}>`));
+        const title = item.volumeInfo.title;
+        const author = item.volumeInfo.authors[0];
+        const description = item.volumeInfo.description;
+        const $newBookInfoDiv = $('<div class="book-info">');
+        $newBookInfoDiv.append($('<h3>').text(title))
+                       .append($('<h4>').text(author))
+                       .append($('<p>').text(description));
+
+        $newDiv.append($newBookInfoDiv);
+        $("#carousel-images").append($newDiv);
+        highestIndex++
+    }    
+    /*console.log(response.items[0].volumeInfo.title);
     console.log(response.items[0].volumeInfo.authors[0]);
     console.log(response.items[1].volumeInfo.title);
     console.log(response.items[1].volumeInfo.authors[0]);
@@ -25,15 +45,15 @@ $.ajax({
     $('#second').append($(`<img src=${image2}>`));
     const image3 = response.items[2].volumeInfo.imageLinks.thumbnail;
     $('#third').append($(`<img src=${image3}>`));
+    */ 
 
-})
-
+})   
 
 ////CAROUSEL///
 //////////////
 
 let currentImgIndex = 0;
-const highestIndex = $('#carousel-images').children().length - 1;
+let highestIndex = -1;
 
 $("#next").on("click", () => {
     $('#carousel-images').children().eq(currentImgIndex).css('display', 'none');
@@ -43,7 +63,7 @@ $("#next").on("click", () => {
         currentImgIndex = 0;
     }
 
-    $('#carousel-images').children().eq(currentImgIndex).css('display', 'block');
+    $('#carousel-images').children().eq(currentImgIndex).css('display', 'flex');
 
 
 });
@@ -56,9 +76,10 @@ $("#previous").on("click", () => {
         currentImgIndex = highestIndex;
     }
 
-    $('#carousel-images').children().eq(currentImgIndex).css('display', 'block');
+    $('#carousel-images').children().eq(currentImgIndex).css('display', 'flex');
 
 
 });
+
 
 

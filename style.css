@@ -29,7 +29,7 @@
   }
 
 #carousel-images {
-    width: 80%;
+    width: 100%;
     background: #bbbbbb;
     padding: 10px;
     box-sizing: border-box;
@@ -42,9 +42,23 @@
   }
   
 #carousel-images div:first-of-type {
-    display: block;
+    display: flex;
   }
   
+.book {
+    height: 100%;
+}
+
+.book img {
+    height: 200px;
+    width: 150px;
+}
+
+.book-info {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left: 25px;
+}
   
 .carousel-button {
     align-self: center;
