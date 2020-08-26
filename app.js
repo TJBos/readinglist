@@ -11,19 +11,24 @@
 //response is JSON with array per book item;
 //access title: .items[0].volumeInfo.title
 //access author: .items[0].volumeInfo.authors[0]
-/*
+
 $.ajax({
     url: 'https://www.googleapis.com/books/v1/users/112452514880183692834/bookshelves/1001/volumes'
 }).then((response) => {
-    //console.log(response.items[0].volumeInfo.title);
-    //console.log(response.items[0].volumeInfo.authors[0]);
-    //console.log(response.items[1].volumeInfo.title);
-    //console.log(response.items[1].volumeInfo.authors[0]);
-    //const image = response.items[1].volumeInfo.imageLinks.thumbnail;
-    //$('#book').append($(`<img src=${image}>`));
+    console.log(response.items[0].volumeInfo.title);
+    console.log(response.items[0].volumeInfo.authors[0]);
+    console.log(response.items[1].volumeInfo.title);
+    console.log(response.items[1].volumeInfo.authors[0]);
+    const image1 = response.items[0].volumeInfo.imageLinks.thumbnail;
+    $('#first').append($(`<img src=${image1}>`));
+    const image2 = response.items[1].volumeInfo.imageLinks.thumbnail;
+    $('#second').append($(`<img src=${image2}>`));
+    const image3 = response.items[2].volumeInfo.imageLinks.thumbnail;
+    $('#third').append($(`<img src=${image3}>`));
+
 })
 
-*/
+
 ////CAROUSEL///
 //////////////
 

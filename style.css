@@ -1,26 +1,43 @@
-#tabs {
-    display: none;
+#container {
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    max-width: 600px;
+    border: 1px solid black;
 }
 
-#carousel-container {
-    width: 70%;
+
+
+#tabs {
     display: flex;
     justify-content: space-around;
+}
+
+.genre {
+    width: 20%;
+    height: 30px;
+    border: 1px solid black;
+}
+
+
+#carousel-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
 #carousel-images {
     width: 80%;
-    max-width: 400px;
     background: #bbbbbb;
     padding: 10px;
-    border-radius: 10px;
     box-sizing: border-box;
  
   }
 
 #carousel-images div {
     width: 100%;
-    border-radius: 10px;
     display: none;
   }
   
@@ -31,17 +48,12 @@
   
 .carousel-button {
     align-self: center;
-    background: #f2cd99;
-    color: #888;
     padding: 10px;
     border-radius: 50%;
     text-align: center;
-    box-shadow: 1px 1px #fa8d8e;
-  }
+}
 
 .carousel-button:hover {
     cursor: pointer;
-    background: #fa8d8e;
-    box-shadow: 1px 1px #f2cd99;
     color: white;
   }
