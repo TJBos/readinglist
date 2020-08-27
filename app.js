@@ -21,6 +21,8 @@
 
 $('.genre').on("click", (event) => {
 
+    $('#carousel-images').empty();
+    highestIndex = -1;
     const category = $(event.target).attr('id');
     
     $.ajax({
