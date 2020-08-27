@@ -1,34 +1,38 @@
 //API KEY
 //AIzaSyC17HtqLLefNJ4Fe-zA07LzIHdJndzRra4
 
-//https://www.googleapis.com/books/v1/users/userId/bookshelves/shelf/volumes
 
-//uid=112452514880183692834&as_coll=1001 //where user id and book shelf id is mentioned
-
-//https://www.googleapis.com/books/v1/users/112452514880183692834/bookshelves/1001/volumes
-
+//each clickable category (tabs) corresponds to a Bookshelf on Google Books;
 //1001 is "software"
 //1002 is "science fiction"
 //1003 is non-fiction
 //1004 is fiction
 
-// => working AP for an example bookshelf
-//will make 4 bookshelves now with different books in it. 
+//we're querying one bookshelf at a time;
+//response is JSON; array of objects; each object corresponds to 1 book;
 
-//response is JSON with array per book item;
-//access title: .items[0].volumeInfo.title
-//access author: .items[0].volumeInfo.authors[0]
+
+//----------------------------------------------------------------------
+//AJAX call to populate all data from Google Books bookshelves API///
+//---------------------------------------------------------------------- 
 
 $('.genre').on("click", (event) => {
-
+    
+    //Reset everything
+    $('.genre').css('background-color', 'white');
     $('#carousel-images').empty();
     highestIndex = -1;
+    //Change color when clicked
+    $(event.target).css('background-color', 'lightgrey');
+    //choose the right category (bookshelf ID) for the URL
     const category = $(event.target).attr('id');
     
+    //AJAX request to URL
     $.ajax({
         url: `https://www.googleapis.com/books/v1/users/112452514880183692834/bookshelves/${category}/volumes`
     }).then((response) => {
         
+        //Make a new div for each book on the bookshelf, populating data for the author, title, image and description from Google Books
         for (item of response.items) {
             const $newDiv = $('<div class="book">');
             const image = item.volumeInfo.imageLinks.thumbnail;
@@ -48,10 +52,13 @@ $('.genre').on("click", (event) => {
         
     })   
 
-})
+});
 
-////CAROUSEL///
-//////////////
+
+//The carousel slider will slide through all books on the particular bookshelf
+//-------------
+//CAROUSEL
+//-------------
 
 let currentImgIndex = 0;
 let highestIndex = -1;

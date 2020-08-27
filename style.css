@@ -6,6 +6,10 @@
     width: 70%;
     max-width: 600px;
     border: 1px solid black;
+    border-top: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -16,21 +20,33 @@
 }
 
 .genre {
-    width: 20%;
-    height: 30px;
+    width: 25%;
+    height: 40px;
     border: 1px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 1.2em;
 }
 
+.genre:hover {
+    cursor: pointer;
+    background-color: lightgray;
+    color: orange;
+}
 
 #carousel-container {
     width: 100%;
+    height: 300px;
     display: flex;
     justify-content: center;
+    background: black;
+    color: white;
   }
 
 #carousel-images {
     width: 100%;
-    background: #bbbbbb;
     padding: 10px;
     box-sizing: border-box;
  
@@ -52,6 +68,7 @@
 .book img {
     height: 200px;
     width: 150px;
+    margin-top: 40px;
 }
 
 .book-info {
@@ -62,12 +79,12 @@
   
 .carousel-button {
     align-self: center;
+    font-size: 2em;
     padding: 10px;
-    border-radius: 50%;
     text-align: center;
 }
 
 .carousel-button:hover {
     cursor: pointer;
-    color: white;
+    color: lightgray;
   }
