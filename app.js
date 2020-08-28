@@ -16,6 +16,7 @@
 //AJAX call to populate all data from Google Books bookshelves API///
 //---------------------------------------------------------------------- 
 
+//The carousel will populate when a genre tab is clicked
 $('.genre').on("click", (event) => {
     
     //Reset everything
@@ -44,8 +45,8 @@ $('.genre').on("click", (event) => {
             $newBookInfoDiv.append($('<h3>').text(title))
                            .append($('<h4>').text(author))
                            .append($('<p>').text(description));
-    
             $newDiv.append($newBookInfoDiv);
+            $newBookInfoDiv.wrap(`<a href=${item.volumeInfo.infoLink} target="_blank"></a>`);
             $("#carousel-images").append($newDiv);
             highestIndex++
         }    
