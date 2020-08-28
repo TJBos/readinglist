@@ -10,6 +10,7 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     font-family: 'Montserrat', sans-serif;
+    box-shadow: 5px 5px 5px grey;
 }
 
 
@@ -28,6 +29,11 @@
     text-align: center;
     line-height: 30px;
     font-size: 1.2em;
+    box-shadow: 5px 5px 5px grey;
+}
+
+.genre:last-of-type {
+    box-shadow: none;
 }
 
 .genre:hover {
