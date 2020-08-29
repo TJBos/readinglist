@@ -23,6 +23,7 @@ $('.genre').on("click", (event) => {
     $('.genre').css('background-color', 'white');
     $('#carousel-images').empty();
     highestIndex = -1;
+    currentImgIndex = 0;
     //Change color when clicked
     $(event.target).css('background-color', 'lightgrey');
     //choose the right category (bookshelf ID) for the URL
