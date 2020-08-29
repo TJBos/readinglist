@@ -90,5 +90,9 @@ $("#previous").on("click", () => {
 
 });
 
+//On page load, populate carousel with first tab open
+
+$('.genre:first-of-type').trigger('click');
+
 
 
